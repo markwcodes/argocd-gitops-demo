@@ -17,7 +17,7 @@ jobs:
           echo "hex=$hex" >> $GITHUB_OUTPUT
       - name: Set hex colour in properties file
         run: |
-          echo "PODINFO_UI_COLOR=#${{steps.generate_random_hex.outputs.hex}}" > podinfo.properties
+          echo "PODINFO_UI_COLOR=#${{steps.generate_random_hex.outputs.hex}}" > gitops-config/podinfo.properties
       - name: Commit and push changes
         uses: devops-infra/action-commit-push@master
         with:
