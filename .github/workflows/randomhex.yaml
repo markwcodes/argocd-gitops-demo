@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: feat/random-ui-colour
       - name: Generate random hex colour
         id: "generate_random_hex"
         run: |
@@ -19,10 +21,9 @@ jobs:
         run: |
           echo "PODINFO_UI_COLOR=#${{steps.generate_random_hex.outputs.hex}}" > gitops-config/podinfo.properties
       - name: Commit and push changes
-        uses: devops-infra/action-commit-push@master
+        uses: EndBug/add-and-commit@v9
         with:
-          github_token: ${{ secrets.CR_PAT }}
-          target_branch: feat/random-ui-colour
-          amend: true
-          force: true
-          commit_message: "Change Podinfo UI colour to #${{steps.generate_random_hex.outputs.hex}}"
+          new_branch: feat/random-ui-colour
+          committer_name: GitHub Actions
+          committer_email: 41898282+github-actions[bot]@users.noreply.github.com
+          message: "Change Podinfo UI colour to #${{steps.generate_random_hex.outputs.hex}}"
