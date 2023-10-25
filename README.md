@@ -1,11 +1,8 @@
 # argocd-demo
 
-Argocd:
+Argocd UI:
 `k -n argocd port-forward svc/argocd-server 8080:443`
 
-Podinfo:
-`k -n argocd-demo-webapp port-forward svc/podinfo 8081:9898`
+![image](https://github.com/markwcodes/argocd-gitops-demo/assets/7064464/395881f7-2a7f-43b9-ab8e-2b27174210a7)
 
-![Untitled](https://github.com/markwcodes/argocd-demo/assets/7064464/e7982c74-d6c0-4924-b208-a99486aa014b)
-
-![image](https://github.com/markwcodes/argocd-demo/assets/7064464/6a2e1e0c-12be-4d01-801f-8f9b409b8295)
+![image](https://github.com/markwcodes/argocd-gitops-demo/assets/7064464/04cdfca8-1fc6-48d5-80af-6a510ea6aaa3)
