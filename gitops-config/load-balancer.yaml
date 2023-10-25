@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    service.beta.kubernetes.io/do-loadbalancer-certificate-id: ""
+    # service.beta.kubernetes.io/do-loadbalancer-certificate-id: ""
     service.beta.kubernetes.io/do-loadbalancer-disable-lets-encrypt-dns-records: "false"
     service.beta.kubernetes.io/do-loadbalancer-protocol: https
     service.beta.kubernetes.io/do-loadbalancer-redirect-http-to-https: "true"
