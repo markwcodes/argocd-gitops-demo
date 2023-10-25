@@ -45,4 +45,6 @@ Podinfo app:\
 
 ## To-do
 
+- Setup Argo CD ingress and endpoint
+- Use Github event webhooks instead of Argo CD polling
 - Setup nginx ingress controller for demo apps to reduce the use of DigitalOcean load balancers
