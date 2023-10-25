@@ -22,4 +22,5 @@ jobs:
         uses: devops-infra/action-commit-push@master
         with:
           github_token: ${{ secrets.CR_PAT }}
+          target_branch: feat/random-ui-colour
           commit_message: "Change Podinfo UI colour to #${{steps.generate_random_hex.outputs.hex}}"
