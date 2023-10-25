@@ -1,0 +1,25 @@
+name: Set random UI colour
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */1 * * *" # Every hour, on the hour
+jobs:
+  change-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Generate random hex colour
+        id: "generate_random_hex"
+        run: |
+          hex="$(openssl rand -hex 3)"
+          echo "Output [$hex]"
+          echo "hex=$hex" >> $GITHUB_OUTPUT
+      - name: Set hex colour in properties file
+        run: |
+          echo "PODINFO_UI_COLOR=#${{steps.generate_random_hex.outputs.hex}}" > podinfo.properties
+      - name: Commit and push changes
+        uses: devops-infra/action-commit-push@master
+        with:
+          github_token: ${{ secrets.CR_PAT }}
+          commit_message: "Change Podinfo UI colour to #${{steps.generate_random_hex.outputs.hex}}"
