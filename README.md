@@ -1,8 +1,8 @@
-# Argo CD Git-Ops demo
+# Argo CD GitOps Demo
 
 [![Set random UI colour](https://github.com/markwcodes/argocd-gitops-demo/actions/workflows/randomhex.yaml/badge.svg)](https://github.com/markwcodes/argocd-gitops-demo/actions)
 
-Live demo: [podinfo.wilson.codes](https://podinfo.wilson.codes/)
+### Live demo: [podinfo.wilson.codes](https://podinfo.wilson.codes/)
 
 ## Overview
 
@@ -26,10 +26,10 @@ Kustomize provides field replacement based on patches defined in `kustomization.
 1. Install Argo CD in your cluster
 
 2. Access in-cluster Argocd UI:
-`k -n argocd port-forward svc/argocd-server 8080:443`\
+`kubectl -n argocd port-forward svc/argocd-server 8080:443`\
 Then navigate to: [localhost:8080](https://localhost:8080/)
 
-3. Fetch the admin password: `k -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo`
+3. Fetch the admin password: `kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo`
 
 4. Login and setup a new application
 
@@ -45,4 +45,4 @@ Podinfo app:\
 
 ## To-do
 
-- Setup nginx ingress controller for demo apps (ran out of load balancers in DigitalOcean)
+- Setup nginx ingress controller for demo apps to reduce the use of DigitalOcean load balancers
