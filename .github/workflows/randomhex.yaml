@@ -21,8 +21,9 @@ jobs:
         run: |
           echo "PODINFO_UI_COLOR=#${{steps.generate_random_hex.outputs.hex}}" > gitops-config/podinfo.properties
       - name: Commit and push changes
-        uses: devops-infra/action-commit-push@master
+        uses: EndBug/add-and-commit@v9
         with:
-          github_token: ${{ secrets.CR_PAT }}
-          target_branch: feat/random-ui-colour
-          commit_message: "Change Podinfo UI colour to #${{steps.generate_random_hex.outputs.hex}}"
+          new_branch: feat/random-ui-colour
+          committer_name: GitHub Actions
+          committer_email: 41898282+github-actions[bot]@users.noreply.github.com
+          message: "Change Podinfo UI colour to #${{steps.generate_random_hex.outputs.hex}}"
